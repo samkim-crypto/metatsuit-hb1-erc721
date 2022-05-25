@@ -1,57 +1,54 @@
-const colors = require('tailwindcss/colors');
+const colors = require("tailwindcss/colors");
 
 module.exports = {
-  mode: 'jit',
-  content: [
-    './src/**/*.tsx',
-    './public/index.html',
-  ],
+  mode: "jit",
+  content: ["./src/**/*.tsx", "./public/index.html"],
   theme: {
     extend: {
       colors: {
         // General
         page: {
-          from_bg: colors.slate[100],
-          to_bg: colors.slate[200],
+          from_bg: colors.black,
+          to_bg: colors.black,
         },
-        titles: colors.indigo[600],
+        titles: colors.yellow[400],
         links: {
-          txt: colors.indigo[600],
-          hover_txt: colors.indigo[700],
+          txt: colors.yellow[400],
+          hover_txt: colors.yellow[600],
         },
-        loading_spinner: colors.indigo[500],
+        loading_spinner: colors.yellow[400],
         popups: {
-          bg: colors.white,
-          txt: colors.slate[800],
-          internal_border: colors.slate[200],
+          bg: colors.black,
+          txt: colors.white,
+          internal_border: colors.black,
         },
         warning: {
-          txt: colors.slate[800],
-          bg: colors.yellow[400],
-          border: colors.yellow[500],
+          txt: colors.white,
+          bg: colors.black,
+          border: colors.black,
         },
         error: {
-          txt: colors.red[500],
-          bg: colors.red[50],
-          border: colors.red[200],
+          txt: colors.red[600],
+          bg: colors.black,
+          border: colors.black,
         },
 
         // Inputs
         btn: {
-          txt: colors.slate[800],
-          bg: colors.white,
-          border: colors.slate[200],
-          hover_txt: colors.slate[800],
-          hover_bg: colors.slate[100],
-          hover_border: colors.slate[200],
+          txt: colors.white,
+          bg: colors.black,
+          border: colors.white,
+          hover_txt: colors.black,
+          hover_bg: colors.white,
+          hover_border: colors.white,
         },
         btn_primary: {
           txt: colors.white,
-          bg: colors.indigo[500],
-          border: colors.indigo[500],
-          hover_txt: colors.white,
-          hover_bg: colors.indigo[600],
-          hover_border: colors.indigo[600],
+          bg: colors.black,
+          border: colors.white,
+          hover_txt: colors.black,
+          hover_bg: colors.white,
+          hover_border: colors.white,
         },
         btn_error: {
           txt: colors.white,
@@ -61,7 +58,7 @@ module.exports = {
           hover_bg: colors.red[600],
           hover_border: colors.red[600],
         },
-        label: colors.indigo[600],
+        label: colors.red[600],
         txt_input: {
           txt: colors.indigo[600],
           bg: colors.white,
@@ -70,7 +67,7 @@ module.exports = {
           focus_bg: colors.slate[50],
           focus_border: colors.indigo[300],
         },
-        
+
         // Whitelist proof widget
         wl_message: {
           txt: colors.slate[800],
@@ -78,7 +75,7 @@ module.exports = {
         },
 
         // Mint widget
-        token_preview: colors.indigo[200],
+        token_preview: colors.yellow[200],
       },
     },
   },

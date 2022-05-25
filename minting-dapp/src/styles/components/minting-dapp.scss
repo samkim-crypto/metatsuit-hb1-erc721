@@ -81,7 +81,7 @@
   }
 
   .collection-status {
-    @apply grid sm:grid-cols-2 auto-rows-min;
+    // @apply grid sm:grid-cols-2 auto-rows-min;
     @apply rounded-lg;
 
     @apply font-mono;
@@ -94,7 +94,7 @@
       @apply px-6 py-4;
 
       .label {
-        @apply text-xs text-label;
+        @apply text-label;
       }
     }
 
@@ -164,7 +164,6 @@
 
   .mint-widget {
     @apply flex flex-col items-center;
-    @apply rounded-lg;
     @apply overflow-hidden;
 
     @apply text-popups-txt text-center;
@@ -201,11 +200,6 @@
 
       & > * {
         @apply rounded-none;
-        @apply border-0;
-      }
-
-      .decrease, .mint-amount {
-        @apply border-r border-popups-internal_border;
       }
 
       .mint-amount {
@@ -216,9 +210,6 @@
         @apply text-label text-lg;
       }
 
-      .primary {
-        @apply border-0;
-      }
     }
   }
 }

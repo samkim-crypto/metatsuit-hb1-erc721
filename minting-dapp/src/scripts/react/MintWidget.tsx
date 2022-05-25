@@ -1,6 +1,6 @@
-import { utils, BigNumber } from 'ethers';
-import React from 'react';
-import NetworkConfigInterface from '../../../../smart-contract/lib/NetworkConfigInterface';
+import { utils, BigNumber } from "ethers";
+import React from "react";
+import NetworkConfigInterface from "../../../../smart-contract/lib/NetworkConfigInterface";
 
 interface Props {
   networkConfig: NetworkConfigInterface;
@@ -40,7 +40,10 @@ export default class MintWidget extends React.Component<Props, State> {
 
   private incrementMintAmount(): void {
     this.setState({
-      mintAmount: Math.min(this.props.maxMintAmountPerTx, this.state.mintAmount + 1),
+      mintAmount: Math.min(
+        this.props.maxMintAmountPerTx,
+        this.state.mintAmount + 1
+      ),
     });
   }
 
@@ -63,31 +66,55 @@ export default class MintWidget extends React.Component<Props, State> {
   render() {
     return (
       <>
-        {this.canMint() ?
+        {this.canMint() ? (
           <div className="mint-widget">
             <div className="preview">
-              <img src="/build/images/preview.png" alt="Collection preview" />
+              <img
+                src="/build/images/mintingpage.gif"
+                alt="Collection preview"
+              />
             </div>
 
             <div className="price">
-              <strong>Total price:</strong> {utils.formatEther(this.props.tokenPrice.mul(this.state.mintAmount))} {this.props.networkConfig.symbol}
+              <strong>Total price:</strong>{" "}
+              {utils.formatEther(
+                this.props.tokenPrice.mul(this.state.mintAmount)
+              )}{" "}
+              {this.props.networkConfig.symbol}
             </div>
 
             <div className="controls">
-              <button className="decrease" onClick={() => this.decrementMintAmount()}>-</button>
-              <span className="mint-amount">{this.state.mintAmount}</span>
-              <button className="increase" onClick={() => this.incrementMintAmount()}>+</button>
-              <button className="primary" onClick={() => this.mint()}>Mint</button>
+              <button
+                className="decrease text-xl"
+                onClick={() => this.decrementMintAmount()}
+              >
+                -
+              </button>
+              <span className="mint-amount text-xl">
+                {this.state.mintAmount}
+              </span>
+              <button
+                className="increase text-xl"
+                onClick={() => this.incrementMintAmount()}
+              >
+                +
+              </button>
+              <button className="primary" onClick={() => this.mint()}>
+                Mint
+              </button>
             </div>
           </div>
-          :
+        ) : (
           <div className="cannot-mint">
-            <span className="emoji">⏳</span>
-            
-            {this.props.isWhitelistMintEnabled ? <>You are not included in the <strong>whitelist</strong>.</> : <>The contract is <strong>paused</strong>.</>}<br />
-            Please come back during the next sale!
+            {this.props.isWhitelistMintEnabled ? (
+              <>
+                You are not included in the <strong>whitelist</strong>.
+              </>
+            ) : (
+              <>The sale has not started yet.</>
+            )}
           </div>
-        }
+        )}
       </>
     );
   }
