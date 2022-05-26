@@ -16,7 +16,7 @@ module.exports = {
           txt: colors.yellow[400],
           hover_txt: colors.yellow[600],
         },
-        loading_spinner: colors.yellow[400],
+        loading_spinner: colors.red[600],
         popups: {
           bg: colors.black,
           txt: colors.white,
