@@ -17,10 +17,12 @@ interface Props {
 
 interface State {
   mintAmount: number;
+  mintClicked: boolean;
 }
 
 const defaultState: State = {
   mintAmount: 1,
+  mintClicked: false,
 };
 
 export default class MintWidget extends React.Component<Props, State> {
@@ -50,6 +52,12 @@ export default class MintWidget extends React.Component<Props, State> {
   private decrementMintAmount(): void {
     this.setState({
       mintAmount: Math.max(1, this.state.mintAmount - 1),
+    });
+  }
+
+  private setMintClicked(): void {
+    this.setState({
+      mintClicked: true,
     });
   }
 
@@ -99,9 +107,29 @@ export default class MintWidget extends React.Component<Props, State> {
               >
                 +
               </button>
-              <button className="primary" onClick={() => this.mint()}>
+              <button
+                className="primary"
+                onClick={() => {
+                  this.setMintClicked();
+                  this.mint();
+                }}
+              >
                 Mint
               </button>
+            </div>
+            <div className="py-8 text-yellow-400">
+              {this.state.mintClicked ? (
+                <>
+                  Great! Please approve the transaction in the metamask wallet
+                  and then check out your NFT on{" "}
+                  <a href={"https://opensea.io/"} target="_blank">
+                    OpenSea
+                  </a>
+                  .
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         ) : (
