@@ -298,7 +298,7 @@ export default class Dapp extends React.Component<Props, State> {
               <br />
               Public-sale :<span className="font-semibold"> 06/03/2022</span>
               <br />
-              Public-sale price :<span className="font-semibold"> 0.01Ξ</span>
+              Public-sale price :<span className="font-semibold"> 0.1Ξ</span>
               <br />
               <br />
               Reveal date :<span className="font-semibold"> 06/08/2022</span>
