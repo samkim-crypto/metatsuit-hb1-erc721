@@ -10,13 +10,13 @@ const CollectionConfig: CollectionConfigInterface = {
   // yarn rename-contract NEW_CONTRACT_NAME
   // Please DO NOT change it manually!
   contractName: "MetatBonzai",
-  tokenName: "Metatsuit Hybrid Box V-1",
-  tokenSymbol: "HBV1",
+  tokenName: "METATBONSAI Collection",
+  tokenSymbol: "HBv1",
   hiddenMetadataUri:
-    "ipfs://QmcPAaQZmpsuhScf2ga3GY1V8go2vCt5sdAAeTdRhdAgj7/hidden.json",
+    "ipfs://QmVNGyacKJvyL41jgy8cN3yfSU3kJtKBRonAfvseBpeFEq/1.json",
   maxSupply: 300,
   whitelistSale: {
-    price: 0.005,
+    price: 0.0,
     maxMintAmountPerTx: 100,
   },
   preSale: {
@@ -24,10 +24,10 @@ const CollectionConfig: CollectionConfigInterface = {
     maxMintAmountPerTx: 100,
   },
   publicSale: {
-    price: 0.02,
+    price: 0.01,
     maxMintAmountPerTx: 100,
   },
-  contractAddress: "0x949E90F7Ca72F72Ff9DCd56d28408B16347D20Db",
+  contractAddress: "0xe4d86D7FA120580C208Ff2fBe53b70Be35860D9A",
   marketplaceIdentifier: "my-nft-token",
   marketplaceConfig: Marketplaces.openSea,
   whitelistAddresses,
