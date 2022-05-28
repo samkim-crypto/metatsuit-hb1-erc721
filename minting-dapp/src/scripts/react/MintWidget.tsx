@@ -11,8 +11,8 @@ interface Props {
   isPaused: boolean;
   isWhitelistMintEnabled: boolean;
   isUserInWhitelist: boolean;
-  mintTokens(mintAmount: number): Promise<void>;
-  whitelistMintTokens(mintAmount: number): Promise<void>;
+  mintTokens(mintAmount: number, state: MintWidget): Promise<void>;
+  whitelistMintTokens(mintAmount: number, state: MintWidget): Promise<void>;
 }
 
 interface State {
@@ -55,7 +55,7 @@ export default class MintWidget extends React.Component<Props, State> {
     });
   }
 
-  private setMintClicked(): void {
+  public setMintClicked(): void {
     this.setState({
       mintClicked: true,
     });
@@ -63,12 +63,12 @@ export default class MintWidget extends React.Component<Props, State> {
 
   private async mint(): Promise<void> {
     if (!this.props.isPaused) {
-      await this.props.mintTokens(this.state.mintAmount);
+      await this.props.mintTokens(this.state.mintAmount, this);
 
       return;
     }
 
-    await this.props.whitelistMintTokens(this.state.mintAmount);
+    await this.props.whitelistMintTokens(this.state.mintAmount, this);
   }
 
   render() {
@@ -76,6 +76,22 @@ export default class MintWidget extends React.Component<Props, State> {
       <>
         {this.canMint() ? (
           <div className="mint-widget">
+            <div className="text-large text-yellow-400">
+              {this.state.mintClicked ? (
+                <>
+                  <div className="border-2 border-yellow-400 pt-2 pb-4">
+                    <span className="emoji">🎉</span> Mint was successful!{" "}
+                    <span className="emoji">🎉</span>
+                    <br /> Give it a minute and check out your NFT on{" "}
+                    <a href={"https://opensea.io/"} target="_blank">
+                      OpenSea
+                    </a>
+                    .
+                  </div>
+                </>
+              ) : null}
+            </div>
+
             <div className="preview">
               <img
                 src="/build/images/mintingpage.gif"
@@ -110,26 +126,12 @@ export default class MintWidget extends React.Component<Props, State> {
               <button
                 className="primary"
                 onClick={() => {
-                  this.setMintClicked();
+                  // this.setMintClicked();
                   this.mint();
                 }}
               >
                 Mint
               </button>
-            </div>
-            <div className="py-8 text-yellow-400">
-              {this.state.mintClicked ? (
-                <>
-                  Great! Please approve the transaction in the metamask wallet
-                  and then check out your NFT on{" "}
-                  <a href={"https://opensea.io/"} target="_blank">
-                    OpenSea
-                  </a>
-                  .
-                </>
-              ) : (
-                <></>
-              )}
             </div>
           </div>
         ) : (
