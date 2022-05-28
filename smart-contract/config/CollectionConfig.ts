@@ -9,8 +9,8 @@ const CollectionConfig: CollectionConfigInterface = {
   // The contract name can be updated using the following command:
   // yarn rename-contract NEW_CONTRACT_NAME
   // Please DO NOT change it manually!
-  contractName: "MetatBonsaiTest11",
-  tokenName: "METATBONSAI Collection Test Version 11",
+  contractName: "MetatBonsaiTest12",
+  tokenName: "METATBONSAI Collection Test Version 12",
   tokenSymbol: "HBv1",
   hiddenMetadataUri:
     "ipfs://QmYhKhLijRe8KiByc1DQJLiCUgTr31GHBs92fVWbH2yfVV/hidden.json",
@@ -27,7 +27,7 @@ const CollectionConfig: CollectionConfigInterface = {
     price: 0.01,
     maxMintAmountPerTx: 100,
   },
-  contractAddress: "0x6e1eb76BB8a680FdDBB9DDe6CDAA4229FC99A2C4",
+  contractAddress: "0x180D9b6820b748c6b9DD1D75a715Ac350571A7aB",
   marketplaceIdentifier: "my-nft-token",
   marketplaceConfig: Marketplaces.openSea,
   whitelistAddresses,
